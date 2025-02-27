@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+
+{% block content %}
+<form action="" method="POST">
+  {% csrf_token %}
+  <h1>Medical records</h1>
+  {{ form2 }}
+  <button type="submit">ADD MEDICAL RECORDS</button>
+</form>
+{% endblock %}
