@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 
 from nurse.forms import NurseForm, MedicalRecordForm
+from nurse.models import Nurse, MedicalRecord
 
 
 # Create your views here.
@@ -25,5 +26,13 @@ def medical(request):
     else:
         form2 = MedicalRecordForm()
     return render(request, 'medical.html',{ 'form2': form2})
+
+def nurselist(request):
+    nurses = Nurse.objects.all()
+    return render(request, 'nurselist.html',{'nurses': nurses})
+
+def medicalrecordlist(request):
+    medicalrecords = MedicalRecord.objects.all()
+    return render(request, 'medicalrecords.html',{'medicalrecords': medicalrecords})
 
 

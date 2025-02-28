@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Nurse LIst{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <h1>Medical Record List</h1>
+         <table class="table">
+           <thead>
+              <tr>
+                <th>PATIENT</th>
+                <th>DOCTOR</th>
+                <th>DIAGNOSIS</th>
+                <th>PRESCRIPTION</th>
+                <th>VISIT_DATE</th>
+             </tr>
+           </thead>
+           <tbody>
+             {% for y in nurses %}
+               <tr>
+                 <td>{{ y.patient }}</td>
+                 <td>{{ y.doctor }}</td>
+                 <td>{{ y.diagnosis }}</td>
+                 <td>{{ y.prescription }}</td>
+                 <td>{{ y.visit_date }}</td>
+               </tr>
+             {% endfor%}
+           </tbody>
+         </table>
+
+    </div>
+    <div class="col-md-4"></div>
+</div>
+
+{% endblock %}

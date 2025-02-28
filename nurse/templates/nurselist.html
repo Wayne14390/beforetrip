@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Nurse LIst{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <h1>Nurse List</h1>
+         <table class="table">
+           <thead>
+              <tr>
+                <th>NAME</th>
+                <th>AGE</th>
+                <th>GENDER</th>
+                <th>D.O.B</th>
+             </tr>
+           </thead>
+           <tbody>
+             {% for y in nurses %}
+               <tr>
+                 <td>{{ y.name }}</td>
+                 <td>{{ y.age }}</td>
+                 <td>{{ y.gender }}</td>
+                 <td>{{ y.date_of_birth }}</td>
+               </tr>
+             {% endfor%}
+           </tbody>
+         </table>
+
+    </div>
+    <div class="col-md-4"></div>
+</div>
+{% endblock %}
