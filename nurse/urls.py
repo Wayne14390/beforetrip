@@ -23,6 +23,10 @@ urlpatterns = [
     path('index/', views.index, name='index'),
     path('medical/', views.medical, name='medical'),
     path('nurselist/', views.nurselist, name='nurselist'),
-    path('medicalrecordlist/', views.nurselist, name='medicalrecordlist'),
+    path('medicalrecordlist/', views.medicalrecordlist, name='medicalrecordlist'),
+    path('editnurse/<int:id>/', views.editnurse, name='editnurse'),
+    path('deletenurse/<int:id>/', views.deletenurse, name='deletenurse'),
+    path('editmedicalrecord/<int:id>/', views.editmedicalrecord, name='editmedicalrecord'),
+    path('deletemedicalrecord/<int:id>/', views.deletemedicalrecord, name='deletemedicalrecord'),
 
 ]

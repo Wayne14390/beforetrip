@@ -1,10 +1,10 @@
 {% extends "base.html" %}
-{% block title %}Nurse LIst{% endblock %}
+{% block title %}Medical Record LIst{% endblock %}
 
 {% block content %}
 <div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-4">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
         <h1>Medical Record List</h1>
          <table class="table">
            <thead>
@@ -17,20 +17,22 @@
              </tr>
            </thead>
            <tbody>
-             {% for y in nurses %}
+             {% for y in medicalrecords %}
                <tr>
                  <td>{{ y.patient }}</td>
                  <td>{{ y.doctor }}</td>
                  <td>{{ y.diagnosis }}</td>
                  <td>{{ y.prescription }}</td>
                  <td>{{ y.visit_date }}</td>
+                 <td><a href="{% url 'editmedicalrecord' y.id %}" type="button" class="btn btn-success">EDIT MEDICAL RECORD</a></td>
+                 <td><a href="{% url 'deletemedicalrecord' y.id %}" type="button" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete the nurse')">DELETE RECORD</a></td>
                </tr>
              {% endfor%}
            </tbody>
          </table>
 
     </div>
-    <div class="col-md-4"></div>
+    <div class="col-md-2"></div>
 </div>
 
 {% endblock %}

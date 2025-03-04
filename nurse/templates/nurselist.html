@@ -4,12 +4,13 @@
 {% block content %}
 
 <div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-4">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
         <h1>Nurse List</h1>
          <table class="table">
            <thead>
               <tr>
+                <th>PICTURE</th>
                 <th>NAME</th>
                 <th>AGE</th>
                 <th>GENDER</th>
@@ -19,16 +20,25 @@
            <tbody>
              {% for y in nurses %}
                <tr>
+                 <td>
+                     {% if y.image %}
+                     <img src="{{ y.image.url }}" alt="" width="80px" height="80px">
+                     {% else %}
+                     <img src="https://cdn.pixabay.com/photo/2015/12/22/04/00/photo-1103597_960_720.png" alt="" height="80" width="80">
+                     {% endif %}
+                 </td>
                  <td>{{ y.name }}</td>
                  <td>{{ y.age }}</td>
                  <td>{{ y.gender }}</td>
                  <td>{{ y.date_of_birth }}</td>
+                 <td><a href="{% url 'editnurse' y.id %}" type="button" class="btn btn-success">EDIT NURSE</a></td>
+                 <td><a href="{% url 'deletenurse' y.id %}" type="button" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete the nurse')">DELETE NURSE</a></td>
                </tr>
              {% endfor%}
            </tbody>
          </table>
 
     </div>
-    <div class="col-md-4"></div>
+    <div class="col-md-2"></div>
 </div>
 {% endblock %}

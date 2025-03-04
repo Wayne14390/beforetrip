@@ -12,6 +12,12 @@ class NurseForm(forms.ModelForm):
             'age': forms.NumberInput(attrs={'class': 'form-control', 'placeholder':'Enter your age'}),
             'gender': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Enter your gender'}),
             'date_of_birth':forms.DateInput(attrs={'class': 'form-control', 'placeholder':'Enter your date of birth'}),
+            'image': forms.ClearableFileInput(
+                attrs={'class': 'form-control',
+                       'accept':'image/*',
+                       'title':'Select your image'
+                       }
+            ),
             }
 
 class MedicalRecordForm(forms.ModelForm):

@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Nurse(models.Model):
+    image = models.ImageField(upload_to='nurse_images/',blank=True)
     name = models.CharField(max_length=20)
     age = models.IntegerField()
     gender = models.CharField(max_length=10)
@@ -30,3 +31,4 @@ class Doctor(models.Model):
 
     def __str__(self):
         return self.name
+

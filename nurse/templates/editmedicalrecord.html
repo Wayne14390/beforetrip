@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}medical record LIst{% endblock %}
+{% block content %}
+<h2>Edit Medical Record Form</h2>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button class="btn btn-success" >Edit Medical Record</button>
+</form>
+{% endblock %}
