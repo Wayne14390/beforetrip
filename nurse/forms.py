@@ -1,6 +1,6 @@
 from django import forms
 
-from nurse.models import Nurse, MedicalRecord
+from nurse.models import Nurse, MedicalRecord, Student
 
 
 class NurseForm(forms.ModelForm):
@@ -31,3 +31,9 @@ class MedicalRecordForm(forms.ModelForm):
             'prescription': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Enter your prescription'}),
             'visit_date': forms.DateInput(attrs={'class': 'form-control', 'placeholder':'Enter your date of visit'}),
         }
+
+
+class StudentForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = ['picture', 'student_name', 'student_bio']

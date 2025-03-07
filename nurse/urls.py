@@ -28,5 +28,10 @@ urlpatterns = [
     path('deletenurse/<int:id>/', views.deletenurse, name='deletenurse'),
     path('editmedicalrecord/<int:id>/', views.editmedicalrecord, name='editmedicalrecord'),
     path('deletemedicalrecord/<int:id>/', views.deletemedicalrecord, name='deletemedicalrecord'),
-
+    path('nurseapi/', views.nurseapi, name='nurseapi'),
+    path('medicalrecordapi/', views.medicalrecordapi, name='medicalrecordapi'),
+    path('student_list/', views.student_list, name='student_list'),
+    path('student_create/', views.student_create, name='student_create'),
+    path('student_update/<int:id>/', views.student_update, name='student_update'),
+    path('student_delete/<int:id>/', views.student_delete, name='student_delete'),
 ]
