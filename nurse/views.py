@@ -1,6 +1,6 @@
 from django.contrib import messages
-from django.http import JsonResponse
-from django.shortcuts import render, redirect, get_object_or_404
+from django.http import JsonResponse, HttpResponse
+from django_daraja.mpesa.core import MpesaClient
 from rest_framework import status
 from rest_framework.decorators import api_view
 
@@ -136,3 +136,13 @@ def student_delete(request, pk):
         student.delete()
         return redirect('student_list')
     return render(request, 'student_confirm_delete.html', {'student': student})
+
+def mpesaapi(request):
+    client = MpesaClient()
+    phone_number = '0799723671'
+    amount = 1
+    account_reference = 'emobilis'
+    transaction_desc = 'Full Stack fee payment'
+    callback_url = 'https://darajambili.herokuapp.com/express-payment';
+    response = client.stk_push(phone_number, amount, account_reference, transaction_desc, callback_url)
+    return HttpResponse(response)

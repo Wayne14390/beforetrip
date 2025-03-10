@@ -34,4 +34,5 @@ urlpatterns = [
     path('student_create/', views.student_create, name='student_create'),
     path('student_update/<int:id>/', views.student_update, name='student_update'),
     path('student_delete/<int:id>/', views.student_delete, name='student_delete'),
+    path('stk_push/',views.mpesaapi,name='stk_push'),
 ]
